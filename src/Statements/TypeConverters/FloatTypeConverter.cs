@@ -2,7 +2,7 @@
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 
-namespace ExpensesAnalyzer.StatementParsing.TypeConverters;
+namespace ExpensesAnalyzer.Statements.TypeConverters;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public class FloatTypeConverter : DefaultTypeConverter

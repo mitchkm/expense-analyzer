@@ -1,8 +1,8 @@
 ﻿using CsvHelper.Configuration;
-using ExpensesAnalyzer.StatementParsing.Models;
-using ExpensesAnalyzer.StatementParsing.TypeConverters;
+using ExpensesAnalyzer.Statements.Models;
+using ExpensesAnalyzer.Statements.TypeConverters;
 
-namespace ExpensesAnalyzer.StatementParsing.Maps;
+namespace ExpensesAnalyzer.Statements.Maps;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public sealed class ParsedTransactionMap : ClassMap<ParsedTransaction>

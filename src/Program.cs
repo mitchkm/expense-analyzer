@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.CommandLine;
-using ExpensesAnalyzer.StatementParsing;
-using ExpensesAnalyzer.StatementParsing.Models;
+using ExpensesAnalyzer.Statements;
+using ExpensesAnalyzer.Statements.Models;
 
 namespace ExpensesAnalyzer
 {
@@ -16,6 +16,7 @@ namespace ExpensesAnalyzer
             });
 
             await rootCommand.InvokeAsync(args);
+            OldMain(args);
         }
         
         static void OldMain(string[] args)
@@ -48,7 +49,7 @@ namespace ExpensesAnalyzer
             // using StreamReader reader = new StreamReader("./TestData/chase-2022-statement.csv");
             // using StreamReader reader = new StreamReader("./TestData/wellsfargo-test.csv");
 
-            var records = StatementParser.ParseStatement("./TestData/capitolone-2022-statement.csv", capitolOneMapping);
+            IEnumerable<ParsedTransaction> records = Statement.Parse("../TestData/capitolone-2022-statement.csv", capitolOneMapping);
             foreach (ParsedTransaction record in records)
             {
                 // record.NegateAmount();

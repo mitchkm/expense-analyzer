@@ -1,13 +1,13 @@
 ﻿using System.Globalization;
 using CsvHelper;
-using ExpensesAnalyzer.StatementParsing.Maps;
-using ExpensesAnalyzer.StatementParsing.Models;
+using ExpensesAnalyzer.Statements.Maps;
+using ExpensesAnalyzer.Statements.Models;
 
-namespace ExpensesAnalyzer.StatementParsing;
+namespace ExpensesAnalyzer.Statements;
 
-public static class StatementParser
+public static class Statement
 {
-    public static IEnumerable<ParsedTransaction> ParseStatement(string path, ParsedTransactionMapping mapping)
+    public static IEnumerable<ParsedTransaction> Parse(string path, ParsedTransactionMapping mapping)
     {
         ParsedTransactionMap.CurrentMapping = mapping;
         

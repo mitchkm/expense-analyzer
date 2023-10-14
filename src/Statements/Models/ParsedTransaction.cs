@@ -1,4 +1,4 @@
-﻿namespace ExpensesAnalyzer.StatementParsing.Models;
+﻿namespace ExpensesAnalyzer.Statements.Models;
 
 public class ParsedTransaction
 {
