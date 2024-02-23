@@ -4,22 +4,19 @@ namespace ExpensesAnalyzer.Transactions.Models;
 
 public class Transaction : ParsedTransaction
 {
-    #region Fields
+    #region Properties
 
-    public string Bank = string.Empty;
-    public string PrimaryCategory = string.Empty;
-    public string SubCategory = string.Empty;
-    public List<string> Flags = new();
-    public float Modifier = 1.0f;
-    public string Note = string.Empty;
+    public string BankId { get; set; } = string.Empty;
+    public string BankName { get; set; } = string.Empty;
+    public string PrimaryCategory { get; set; } = string.Empty;
+    public string SubCategory { get; set; } = string.Empty;
+    public List<string> Flags { get; set; } = new();
+    public float Modifier { get; set; } = 1.0f;
+    public string Note { get; set; } = string.Empty;
 
     #endregion
 
     #region Constructors
-
-    public Transaction()
-    {
-    }
 
     public Transaction(ParsedTransaction parsedTransaction)
     {

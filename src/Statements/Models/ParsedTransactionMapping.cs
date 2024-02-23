@@ -1,13 +1,13 @@
 ﻿namespace ExpensesAnalyzer.Statements.Models;
 
-public struct ParsedTransactionMapping
+public class ParsedTransactionMapping
 {
-    public short DateIndex = -1;
-    public short DescriptionIndex = -1;
-    public short AmountIndex = -1;
-    public short BankDeterminedCategoryIndex = -1;
+    #region Properties
 
-    public ParsedTransactionMapping()
-    {
-    }
+    public short DateIndex { get; set; } = -1;
+    public short DescriptionIndex { get; set; } = -1;
+    public short AmountIndex { get; set; } = -1;
+    public short BankDeterminedCategoryIndex { get; set; } = -1;
+
+    #endregion
 }

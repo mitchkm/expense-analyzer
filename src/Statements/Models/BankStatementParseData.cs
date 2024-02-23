@@ -2,11 +2,12 @@
 
 public class BankStatementParseData
 {
-    #region Fields
+    #region Properties
 
-    public string BankName = string.Empty;
-    public ParsedTransactionMapping ParseMapping = new ();
-    public bool DebitAmountsAreNegative = false;
+    public string BankName { get; set; } = string.Empty;
+    public string BankId { get; set; } = string.Empty;
+    public ParsedTransactionMapping ParseMapping { get; set; } = new();
+    public bool DebitAmountsAreNegative { get; set; } = false;
 
     #endregion
 }

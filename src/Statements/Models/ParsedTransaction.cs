@@ -2,30 +2,14 @@
 
 public class ParsedTransaction : IEquatable<ParsedTransaction>
 {
-    #region Fields
-
-    public DateTime Date;
-    public string Description = "";
-    public float Amount;
-    public string BankDeterminedCategory = "";
-
-    #endregion
-
     #region Properties
 
-    public bool IsDebit => Amount > 0;
+    public DateTime Date { get; set; }
+    public string Description { get; set; } = string.Empty;
+    public float Amount { get; set; }
+    public string BankDeterminedCategory { get; set; } = string.Empty;
 
     #endregion
-
-    public void NegateAmount()
-    {
-        Amount *= -1;
-    }
-
-    public override string ToString()
-    {
-        return $"{Date} | {Amount} | {Description} | {BankDeterminedCategory}";
-    }
 
     public bool Equals(ParsedTransaction? other)
     {
@@ -39,9 +23,24 @@ public class ParsedTransaction : IEquatable<ParsedTransaction>
             return true;
         }
 
-        return Date.Equals(other.Date) 
-               && Description == other.Description 
+        return Date.Equals(other.Date)
+               && Description == other.Description
                && Amount.Equals(other.Amount);
+    }
+
+    public bool GetIsDebit()
+    {
+        return Amount > 0;
+    }
+
+    public void NegateAmount()
+    {
+        Amount *= -1;
+    }
+
+    public override string ToString()
+    {
+        return $"{Date} | {Amount} | {Description} | {BankDeterminedCategory}";
     }
 
     public override bool Equals(object? obj)

@@ -7,7 +7,7 @@ namespace ExpensesAnalyzer.Statements;
 
 public static class Statement
 {
-    public static IEnumerable<ParsedTransaction> Parse(string path, ParsedTransactionMapping mapping)
+    public static List<ParsedTransaction> Parse(string path, ParsedTransactionMapping mapping)
     {
         ParseTransactionMap.CurrentMapping = mapping;
         

@@ -18,7 +18,9 @@ internal static partial class Program
 
     private static void ParseHandler()
     {
-        
+        _transactionManager?.ParseRawStatements();
+        _transactionManager?.PromoteParsedTransactions();
+        _transactionManager?.Save();
     }
     
     private static void AnnotateHandler()
