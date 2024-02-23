@@ -6,10 +6,12 @@ public class Transaction : ParsedTransaction
 {
     #region Fields
 
+    public string Bank = string.Empty;
     public string PrimaryCategory = string.Empty;
     public string SubCategory = string.Empty;
     public List<string> Flags = new();
     public float Modifier = 1.0f;
+    public string Note = string.Empty;
 
     #endregion
 

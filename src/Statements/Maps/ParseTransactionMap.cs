@@ -5,7 +5,7 @@ using ExpensesAnalyzer.Statements.TypeConverters;
 namespace ExpensesAnalyzer.Statements.Maps;
 
 // ReSharper disable once ClassNeverInstantiated.Global
-public sealed class ParsedTransactionMap : ClassMap<ParsedTransaction>
+public sealed class ParseTransactionMap : ClassMap<ParsedTransaction>
 {
     #region Fields
 
@@ -15,7 +15,7 @@ public sealed class ParsedTransactionMap : ClassMap<ParsedTransaction>
 
     #region Constructors
 
-    public ParsedTransactionMap()
+    public ParseTransactionMap()
     {
         if (CurrentMapping.DateIndex != -1)
         {

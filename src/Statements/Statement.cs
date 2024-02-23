@@ -9,11 +9,11 @@ public static class Statement
 {
     public static IEnumerable<ParsedTransaction> Parse(string path, ParsedTransactionMapping mapping)
     {
-        ParsedTransactionMap.CurrentMapping = mapping;
+        ParseTransactionMap.CurrentMapping = mapping;
         
-        using StreamReader reader = new StreamReader(path);
-        using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-        csv.Context.RegisterClassMap<ParsedTransactionMap>();
+        using StreamReader reader = new (path);
+        using CsvReader csv = new (reader, CultureInfo.InvariantCulture);
+        csv.Context.RegisterClassMap<ParseTransactionMap>();
         IEnumerable<ParsedTransaction> records = csv.GetRecords<ParsedTransaction>();
 
         return records.ToList();

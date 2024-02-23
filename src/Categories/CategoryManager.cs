@@ -4,8 +4,14 @@ namespace ExpensesAnalyzer.Categories;
 
 public class CategoryManager
 {
+    private DirectoryManager _directoryManager;
     private Dictionary<string, Category> _categories = new ();
 
+    public CategoryManager(DirectoryManager directoryManager)
+    {
+        _directoryManager = directoryManager;
+    }
+    
     public bool LoadData(DirectoryInfo directory)
     {
         return true;

@@ -9,8 +9,7 @@ public class FloatTypeConverter : DefaultTypeConverter
 {
     public override object? ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
     {
-        float value = 0;
-        float.TryParse(text, out value);
-        return value;
+        bool result = float.TryParse(text, out float value);
+        return result ? value : 0;
     }
 }
