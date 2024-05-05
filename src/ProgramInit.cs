@@ -12,9 +12,8 @@ internal static partial class Program
     private static void InitManagers()
     {
         _directoryManager = new DirectoryManager();
-        _directoryManager.CreateDirectoriesIfMissing();
+        _directoryManager.EnsureDirectories();
         _transactionManager = new TransactionManager(_directoryManager);
-        _transactionManager.Load();
         _categoryManager = new CategoryManager(_directoryManager);
     } 
 }

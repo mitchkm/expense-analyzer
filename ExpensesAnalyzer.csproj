@@ -16,6 +16,7 @@
     <ItemGroup>
       <Folder Include="src\Common\" />
       <Folder Include="TestDir\Statements\Parsed\wells-fargo\" />
+      <Folder Include="TestDir\Statements\Raw\wells-fargo\" />
     </ItemGroup>
 
 </Project>

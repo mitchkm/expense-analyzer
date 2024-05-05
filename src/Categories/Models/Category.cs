@@ -4,8 +4,8 @@ public class Category
 {
     #region Fields
 
-    public string Name = string.Empty;
-    public List<string> SubCategoryNames = new();
+    public string Name { get; set; } = string.Empty;
+    public HashSet<string> SubCategoryNames { get; set; } = new();
 
     #endregion
 }

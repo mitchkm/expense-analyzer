@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text.Json;
+using System.Linq;
 using CsvHelper;
 using ExpensesAnalyzer.Statements;
 using ExpensesAnalyzer.Statements.Models;
@@ -50,6 +51,77 @@ public class TransactionManager
 
     #endregion
 
+    public void AddWellKnownBankParseData()
+    {
+        _config.BankParseData.Add("wells-fargo", new BankStatementParseData()
+        {
+            BankName = "Wells Fargo",
+            BankId = "wells-fargo",
+            DebitAmountsAreNegative = true,
+            ParseMapping = new ParsedTransactionMapping()
+            {
+                DateIndex = 0,
+                DescriptionIndex = 4,
+                AmountIndex = 1,
+            },
+        });
+        _config.BankParseData.Add("chase", new BankStatementParseData()
+        {
+            BankName = "Chase",
+            BankId = "chase",
+            DebitAmountsAreNegative = false,
+            ParseMapping = new ParsedTransactionMapping()
+            {
+                DateIndex = 0,
+                DescriptionIndex = 2,
+                AmountIndex = 5,
+                BankDeterminedCategoryIndex = 3,
+            },
+        });
+        _config.BankParseData.Add("capital-one", new BankStatementParseData()
+        {
+            BankName = "Capital One",
+            BankId = "capital-one",
+            DebitAmountsAreNegative = false,
+            ParseMapping = new ParsedTransactionMapping()
+            {
+                DateIndex = 0,
+                DescriptionIndex = 3,
+                AmountIndex = 5,
+                BankDeterminedCategoryIndex = 4,
+            },
+        });
+        _config.BankParseData.Add("citi", new BankStatementParseData()
+        {
+            BankName = "Citi Bank",
+            BankId = "citi",
+            DebitAmountsAreNegative = false,
+            ParseMapping = new ParsedTransactionMapping()
+            {
+                DateIndex = 1,
+                DescriptionIndex = 2,
+                AmountIndex = 3,
+            },
+        });
+        // _config.BankParseData.Add("wells-fargo", new BankStatementParseData()
+        // {
+        //     BankName = "Wells Fargo",
+        //     BankId = "wells-fargo",
+        //     DebitAmountsAreNegative = false,
+        //     ParseMapping = new ParsedTransactionMapping()
+        //     {
+        //         DateIndex = 0,
+        //         DescriptionIndex = 4,
+        //         AmountIndex = 1,
+        //     },
+        // });
+    }
+
+    public List<Transaction> FilterToYear(DateTime year)
+    {
+        return _allTransactions.Where((transaction) => transaction.Date.Year == year.Year).ToList();
+    }
+    
     public void PromoteParsedTransactions()
     {
         foreach ((string bankId, BankStatementParseData parseData) in _config.BankParseData)

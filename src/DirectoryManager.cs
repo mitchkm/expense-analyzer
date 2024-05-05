@@ -4,20 +4,23 @@ public class DirectoryManager
 {
     public DirectoryInfo NewStatementsDir { get; private set; }
     public DirectoryInfo StatementsDir { get; private set; }
+    public DirectoryInfo StatementsRawDir { get; private set; }
+    public DirectoryInfo StatementsParsedDir { get; private set; }
     public DirectoryInfo TransactionsDir { get; private set; }
     public string TransactionConfigPath => $"{TransactionsDir.FullName}\\transactions.config.json";
     public DirectoryInfo CategoriesDir { get; private set; }
-    
-    public void CreateDirectoriesIfMissing()
+    public string CategoriesConfigPath => $"{CategoriesDir.FullName}\\categories.config.json";
+
+    public void EnsureDirectories()
     {
         NewStatementsDir = Directory.CreateDirectory("New_Statements");
         StatementsDir = Directory.CreateDirectory("Statements");
-        Directory.CreateDirectory("Statements\\Raw");
-        Directory.CreateDirectory("Statements\\Parsed");
+        StatementsRawDir = Directory.CreateDirectory("Statements\\Raw");
+        StatementsParsedDir = Directory.CreateDirectory("Statements\\Parsed");
         TransactionsDir = Directory.CreateDirectory("Transactions");
         CategoriesDir = Directory.CreateDirectory("Categories");
     }
-    
+
     // Directory structure
     // .
     // |- config.json
