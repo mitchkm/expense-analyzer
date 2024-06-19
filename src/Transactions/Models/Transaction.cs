@@ -14,6 +14,8 @@ public class Transaction : ParsedTransaction
     public float Modifier { get; set; } = 1.0f;
     public string Note { get; set; } = string.Empty;
 
+    public float ModifiedAmount => Amount * Modifier;
+
     #endregion
 
     #region Constructors

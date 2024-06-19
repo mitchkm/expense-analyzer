@@ -28,7 +28,6 @@ public class DirectoryManager
     // |- Statements
     // |- |- Raw
     // |- |- Parsed
-    // |- |- banks.json
     // |- Transactions
     // |- Categories
     // |- 

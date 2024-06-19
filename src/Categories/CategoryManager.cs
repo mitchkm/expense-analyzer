@@ -84,9 +84,11 @@ public class CategoryManager
                 "Gas",
                 "Water",
                 "Electric",
-                "Internet",
-                "Phone",
                 "Sewage",
+                "Trash",
+                "Phone",
+                "Internet",
+                "Cable",
             },
         });
         
@@ -149,7 +151,7 @@ public class CategoryManager
             SubCategoryNames = new HashSet<string>()
             {
                 "Video Game",
-                "Card Game",
+                "Trading Card Game",
             },
         });
     }

@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Text.Json;
-using System.Linq;
 using CsvHelper;
 using ExpensesAnalyzer.Statements;
 using ExpensesAnalyzer.Statements.Models;
@@ -140,6 +139,7 @@ public class TransactionManager
                     {
                         BankId = parseData.BankId,
                         BankName = parseData.BankName,
+                        Modifier = parseData.DefaultModifier,
                     };
                     _allTransactions.Add(transaction);
                 }
@@ -173,7 +173,7 @@ public class TransactionManager
                 }
 
                 List<ParsedTransaction> transactions =
-                    Statement.Parse(statementFileInfo.FullName, parseData.ParseMapping).ToList();
+                    StatementsHelper.Parse(statementFileInfo.FullName, parseData.ParseMapping).ToList();
 
                 if (parseData.DebitAmountsAreNegative)
                 {

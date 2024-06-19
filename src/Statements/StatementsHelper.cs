@@ -5,7 +5,7 @@ using ExpensesAnalyzer.Statements.Models;
 
 namespace ExpensesAnalyzer.Statements;
 
-public static class Statement
+public static class StatementsHelper
 {
     public static List<ParsedTransaction> Parse(string path, ParsedTransactionMapping mapping)
     {
